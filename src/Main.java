@@ -59,6 +59,7 @@ class PartTimeEmployee extends Employee{
 
 
 }
+//making payroll system
 
 class PayrollSystem{
         private ArrayList<Employee> employeeList;
@@ -69,12 +70,44 @@ class PayrollSystem{
         public void addEmployee(Employee employee){
             employeeList.add(employee);
         }
+//to remove employee
+    public void removeEmployee(int id){
+            Employee employeeToRemove = null;
+            for(Employee employee : employeeList){
+                if(employee.getId()==id){
+                    employeeToRemove = employee;
+                    break;
+                }
+
+            }
+            if(employeeToRemove != null){
+                employeeList.remove(employeeToRemove);
+            }
+    }
+
+    public void displayEmployee(){
+            for (Employee employee: employeeList){
+                System.out.println(employee);
+         }
+    }
 }
 
 
 
 public class Main {
     public static void main(String[] args) {
+        PayrollSystem payrollSystem = new PayrollSystem();
+        FullTimeEmployee Emp1 = new FullTimeEmployee("shiv",001,500000.0);
+        PartTimeEmployee Emp2 = new PartTimeEmployee("rachit",002,4,300);
 
+
+        payrollSystem.addEmployee(Emp1);
+        payrollSystem.addEmployee(Emp2);
+        System.out.println("Initial Employee Details: ");
+        payrollSystem.displayEmployee();
+        System.out.println("removing employee: ");
+        payrollSystem.removeEmployee(002);
+        System.out.println("Remaining Employee ");
+        payrollSystem.displayEmployee();
     }
 }
