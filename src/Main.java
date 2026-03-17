@@ -1,20 +1,21 @@
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class Employee{
+abstract class Employee {
     private String name;
     private int id;
 
 
-    public Employee(String name, int id){
-        this.name=name;
-        this.id=id;
+    public Employee(String name, int id) {
+        this.name = name;
+        this.id = id;
     }
 
     public String getName() {
         return name;
     }
-    public int getId(){
+
+    public int getId() {
         return id;
     }
 
@@ -22,9 +23,10 @@ abstract class Employee{
 
 
     @Override
-    public String toString(){
-        return "Employee[name="+name+", id="+id+", salary= "+calculateSalary()+"]";
+    public String toString() {
+        return "Employee[name=" + name + ", id=" + id + ", salary= " + calculateSalary() + "]";
     }
+}
 class FullTimeEmployee extends Employee{
         private double monthlySalary;
 
@@ -64,9 +66,12 @@ class PayrollSystem{
         public PayrollSystem(){
             employeeList = new ArrayList<>();
         }
+        public void addEmployee(Employee employee){
+            employeeList.add(employee);
+        }
 }
 
-}
+
 
 public class Main {
     public static void main(String[] args) {
